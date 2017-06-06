@@ -68,7 +68,7 @@ app.get("/obralist", function(req,res){
 app.post("/contato", function(req,res){
 
 
-   //MENSAGEM DE FELICIDADE APRA O SINUHE
+
 
     var mailOptions = {
         from: req.body.email,
