@@ -5,7 +5,7 @@ expressLayouts = require('express-ejs-layouts')
 ejs = require("ejs")
 const nodemailer = require("nodemailer")
 mongoose = require("mongoose")
-var uri = process.env.MONGOLAB_URI
+// var uri = process.env.MONGOLAB_URI
 // mongoose.connect(uri)
 path = require("path")
 u = require("underscore")
