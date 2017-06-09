@@ -50,6 +50,10 @@ app.get("/nbr12721", function(req,res){
     res.render("nbr12721.ejs", {titulo: "NBR 12.721", description: "Elaboramos quadros da NBR 12.721. Faça já seu orçamento conosco!", message:"", homeClass: "", empreendimentosClass: "", construtoraClass: "", contatoClass: ""});
 })
 
+app.get("/contencoes", function(req,res){
+    res.render("contencoes.ejs", {titulo: "Contenções e Arrimos Especiais", description: "Executamos solo grampeado, cortinas atirantadas, muros de arrimo", message:"", homeClass: "", empreendimentosClass: "", construtoraClass: "", contatoClass: ""});
+})
+
 app.get("/itbieregistro", function(req,res){
     res.render("itbieregistro.ejs", {titulo: "Cálculo do ITBI e do Registro", description: "Aprenda como funciona o cálculo do ITBI e do Registro imobiliário", message:"", homeClass: "", empreendimentosClass: "", construtoraClass: "", contatoClass: ""});
 })
