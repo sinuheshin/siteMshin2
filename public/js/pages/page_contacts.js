@@ -42,6 +42,9 @@ var ContactPage = function () {
                 if ($("div#message").text() == "Ops, sua mensagem não pôde ser enviada") {
                     $("div#message").attr("class" , "alert alert-danger fade in")
                 }
+				if ($("div#message").text() == "Por favor confirmar que você não é um Robô") {
+					$("div#message").attr("class" , "alert alert-danger fade in")
+				}
             })
         }
 
