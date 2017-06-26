@@ -6,8 +6,11 @@ ejs = require("ejs")
 const nodemailer = require("nodemailer")
 const request = require("request")
 mongoose = require("mongoose")
-// var uri = process.env.MONGOLAB_URI
-// mongoose.connect(uri)
+var uri = process.env.MONGOLAB_URI
+mongoose.connect(uri)
+var emailUser = process.env.NODEMAILER_USER
+var emailPass = process.env.NODEMAILER_PASS
+var recaptchaKey = process.env.RECAPTCHA_KEY
 path = require("path")
 u = require("underscore")
 bodyParser = require("body-parser")
@@ -30,8 +33,8 @@ app.set('layout', 'layout')
 transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'sinuhe@mshin.com.br',
-        pass: 'mshin2015'
+        user: emailUser,
+        pass: emailPass
     }
 });
 
@@ -72,7 +75,7 @@ app.post("/contato", function(req,res){
         method: 'POST',
         uri: 'https://www.google.com/recaptcha/api/siteverify',
         formData: {
-            secret : "6LfpDB8UAAAAAGqO6vLwSvZM_pVQtZcn8V2vYah4",
+            secret : recaptchaKey,
             response : req.body['g-recaptcha-response']
         }
     }, function(err, response, body){
@@ -80,7 +83,7 @@ app.post("/contato", function(req,res){
         if(JSON.parse(body).success){
             var mailOptions = {
                 from: req.body.email,
-                to: "sinuhe@mshin.com.br",
+                to: emailUser,
                 subject: req.body.nome,
                 text: "E-mail:" +" " + req.body.email + "\n" + "Mensagem:"+" " + req.body.mensagem
 
