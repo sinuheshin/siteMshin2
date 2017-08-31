@@ -43,10 +43,12 @@ directories.forEach(function(directory){
     requireDir(directory)
 });
 
-var port = process.env.OPENSHIFT_NODEJS_PORT || 8080
-var ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080
+var ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
 
-app.listen(port, ip_address)
+app.listen(port, ip)
+
+
 
 app.get("/userlist", isLoggedIn, function(req,res){
     User.find(function (err,users) {
@@ -346,3 +348,4 @@ app.post('/editformulario/:id',isLoggedIn, function(req, res) {
         }
     });
 });
+
