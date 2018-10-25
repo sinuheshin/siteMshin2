@@ -35,7 +35,8 @@
     "passport-local": "*",
     "express-ejs-layouts": "*",
     "require-dir": "*",
-    "underscore": "*"
+    "underscore": "*",
+    "request": "*"
   },
   "devDependencies": {},
   "bundleDependencies": [],
